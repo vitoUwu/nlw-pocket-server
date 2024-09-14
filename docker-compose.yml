@@ -1,0 +1,24 @@
+name: pocket-js-server
+
+services:
+  pg:
+    image: bitnami/postgresql:13.16.0
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_USER=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=inorbit
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U docker"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  api:
+    depends_on:
+      - pg
+    build: .
+    ports:
+      - "3333:3333"
+    environment:
+      - DATABASE_URL=postgresql://docker:docker@pg:5432/inorbit
