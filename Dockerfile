@@ -9,6 +9,8 @@ RUN npm ci
 
 COPY . .
 
+ARG DATABASE_URL
+
 RUN npm run build
 
 ENV ADDRESS=0.0.0.0
