@@ -28,7 +28,10 @@ app.addHook("preHandler", handleUserIdMiddleware);
 
 // plugins
 app.register(fastifyCors, {
-  origin: ["http://localhost:5173"],
+  origin: [
+    "http://localhost:5173",
+    "https://nlw-pocket-web-production.up.railway.app/"
+  ],
   credentials: true
 });
 
