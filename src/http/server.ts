@@ -31,7 +31,8 @@ app.register(fastifyCors, {
   origin: [
     "http://localhost:5173",
     "https://nlw-pocket-web-production.up.railway.app/",
-    "https://nlw-pocket-web-production.up.railway.app"
+    "https://nlw-pocket-web-production.up.railway.app",
+    "https://web-with-fastify-production.up.railway.app"
   ],
   credentials: true
 });
